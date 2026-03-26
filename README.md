@@ -25,7 +25,7 @@ This solution demonstrates a simplified profile publishing system where Salesfor
 
 ## 2. Publishing Logic
 
-<<<<<<< HEAD
+
 - Implemented using a Record-Triggered Flow named **"Profile Publish on Approval"**
 - Triggered when Profile Status = Approved
 - Flow invokes an Apex service to handle publishing
@@ -35,7 +35,7 @@ This solution demonstrates a simplified profile publishing system where Salesfor
 - Triggered when Profile Status = Approved 
 - Flow invokes an Apex service to handle publishing(Apex Classes - PublishProfilesService and ProfilePublishInvoker)
 - Sync status is updated based on the result
->>>>>>> 32f8041b8225e4d3fa9f9f03137688aa4b44700f
+
 
 ## 3. Integration Simulation
 
@@ -106,15 +106,15 @@ sf project deploy start --source-dir force-app
 ```
 
 ### Project Features
-- ✅ Data modeling with custom fields
-- ✅ Record-triggered Flow automation
-- ✅ Apex service layer architecture
-- ✅ External integration simulation
-- ✅ Comprehensive logging and error handling
-- ✅ Git version control integration
+-  Data modeling with custom fields
+-  Record-triggered Flow automation
+- Apex service layer architecture
+- External integration simulation
+-  Comprehensive logging and error handling
+-  Git version control integration
 
 ### Future Improvements
-- Add retry mechanism for failed integrations
+- Add a retry mechanism for failed integrations
 - Use Platform Events for decoupling
 - Implement real API integration
 - Add monitoring dashboard
