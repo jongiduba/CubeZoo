@@ -1,0 +1,25 @@
+# Salesforce CLI configuration
+.sfdx/
+.sf/
+
+# Node dependencies
+node_modules/
+npm-debug.log
+
+# IDE
+.vscode/
+.DS_Store
+*.swp
+*~
+
+# Environment
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store

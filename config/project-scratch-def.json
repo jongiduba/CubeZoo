@@ -1,0 +1,12 @@
+{
+  "orgName": "CubeZoo Practical Assessment Org",
+  "edition": "Developer",
+  "features": [
+    "EnableSetPasswordInApi"
+  ],
+  "settings": {
+    "orgPreferenceSettings": {
+      "s1DesktopEnabled": true
+    }
+  }
+}

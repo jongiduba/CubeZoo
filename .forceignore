@@ -1,0 +1,36 @@
+# List files or directories to ignore during force:source commands
+# An empty entry will ignore everything in the directory
+
+# Salesforce CLI configuration
+.sfdx/
+.sf/
+
+# dependencies
+node_modules/**
+npm-debug.log
+
+# IDEs
+.vscode/
+.DS_Store
+*.swp
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+
+# logs
+logs
+*.log
+
+# misc
+.env
+.env.local
