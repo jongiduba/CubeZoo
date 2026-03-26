@@ -1,15 +1,47 @@
-# CubeZoo Practical Assessment
+# CubeZoo
+Salesforce Practical Assessment
 
-A Salesforce CLI project demonstrating practical Salesforce development skills including data modelling, workflow lifecycle logic, Apex coding structure, and external integration.
+## Overview
 
-## Project Purpose
+This solution demonstrates a simplified profile publishing system where Salesforce acts as the master data source and approved profiles are synchronised to an external CMS.
 
-This exercise evaluates your practical approach to:
-- Salesforce data modelling
-- Workflow and lifecycle logic
-- Apex coding structure
-- External integration thinking
-- Technical judgement under time constraints
+## 1. Data Model
+
+- **Contact (Profile)** – stores profile information, renamed the Standard Field Label for Contact to Profiles as this serves the same purpose
+- **Account (Organisation)** – related organization, renamed the Standard Field Label for Account to Organisation as this serves the same purpose
+- **Integration Log** - stores integration logs for reporting purposes
+
+### Custom fields added to Profiles (Contact) Object:
+- Status (Draft, Review, Approved, Published)
+- Slug
+- Sync Status
+- Last Sync Date
+
+### Custom fields added to Integration Log:
+- Profile
+- Status
+- Response
+- Timestamp
+
+## 2. Publishing Logic
+
+- Implemented using a Record-Triggered Flow
+- Triggered when Profile Status = Approved
+- Flow invokes an Apex service to handle publishing
+- Sync status is updated based on result
+
+## 3. Integration Simulation
+
+- Apex service generates a JSON payload from Profile data
+- Simulated API call determines success/failure
+- Profile record is updated with:
+  - Sync Status
+  - Last Sync Date
+
+## 4. Assumptions
+
+- No real CMS endpoint required
+- Sync is triggered only on approval
 
 ## Project Structure
 
@@ -26,31 +58,26 @@ config/
 sfdx-project.json               # Salesforce CLI project configuration
 ```
 
-## Key Components
-
-- **DataModelController**: Core business logic handler
-- **RecordLifecycleHandler**: Manages record lifecycle and workflow transitions
-- **RecordLifecycleTrigger**: Trigger implementation for record management
-
 ## Getting Started
 
 1. Ensure Salesforce CLI is installed
-2. Authorize an org: `sfdx auth:web:login`
-3. Create a scratch org: `sfdx force:org:create -f config/project-scratch-def.json -a CubeZoo`
-4. Push source to org: `sfdx force:source:push -u CubeZoo`
+2. Authorize an org: `sf org login web`
+3. Deploy metadata: `sf project deploy start`
 
 ## Development
 
 Add your Apex classes, custom objects, and triggers in the appropriate directories under `force-app/main/default/`.
 
-### Useful Commands
-
-- `sfdx force:source:push` - Push source to your org
-- `sfdx force:source:pull` - Pull source from your org
-- `sfdx apex:execute` - Execute Apex code
-- `sfdx force:test:run` - Run Apex tests
-
 ## Requirements
 
 - Salesforce CLI v60.0 or higher
 - Node.js 18 or higher
+Basic success/failure simulation is sufficient
+No retry mechanism implemented due to time constraints
+
+5. Improvements
+Add retry mechanism
+Use Platform Events for decoupling
+Implement real API integration
+Add monitoring dashboard
+>>>>>>> e892b5e5e5ae6e28ec5b7fd80badb5037927444f
