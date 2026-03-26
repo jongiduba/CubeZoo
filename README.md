@@ -25,10 +25,17 @@ This solution demonstrates a simplified profile publishing system where Salesfor
 
 ## 2. Publishing Logic
 
+<<<<<<< HEAD
 - Implemented using a Record-Triggered Flow named **"Profile Publish on Approval"**
 - Triggered when Profile Status = Approved
 - Flow invokes an Apex service to handle publishing
 - Sync status is updated based on result
+=======
+- Implemented using a Record-Triggered Flow(Flow name - Profile Publish on Approval)
+- Triggered when Profile Status = Approved 
+- Flow invokes an Apex service to handle publishing(Apex Classes - PublishProfilesService and ProfilePublishInvoker)
+- Sync status is updated based on the result
+>>>>>>> 32f8041b8225e4d3fa9f9f03137688aa4b44700f
 
 ## 3. Integration Simulation
 
@@ -49,9 +56,9 @@ This solution demonstrates a simplified profile publishing system where Salesfor
 force-app/
   └── main/
       └── default/
-          ├── classes/          # Apex classes
-          ├── objects/          # Custom objects and standard object customizations
-          └── triggers/         # Triggers
+          ├── classes/          # PublishProfilesService, ProfilePublishInvoker)
+          ├── objects/          #  Profiles(Contact), Organisation(Account)
+          └── triggers/         # Triggers(Record Triggered flow with Apex Action)
 config/
   └── project-scratch-def.json  # Scratch org definition
 .forceignore                     # Files to ignore in source tracking
