@@ -25,7 +25,7 @@ This solution demonstrates a simplified profile publishing system where Salesfor
 
 ## 2. Publishing Logic
 
-- Implemented using a Record-Triggered Flow
+- Implemented using a Record-Triggered Flow named **"Profile Publish on Approval"**
 - Triggered when Profile Status = Approved
 - Flow invokes an Apex service to handle publishing
 - Sync status is updated based on result
@@ -72,12 +72,43 @@ Add your Apex classes, custom objects, and triggers in the appropriate directori
 
 - Salesforce CLI v60.0 or higher
 - Node.js 18 or higher
-Basic success/failure simulation is sufficient
-No retry mechanism implemented due to time constraints
 
-5. Improvements
-Add retry mechanism
-Use Platform Events for decoupling
-Implement real API integration
-Add monitoring dashboard
->>>>>>> e892b5e5e5ae6e28ec5b7fd80badb5037927444f
+## Key Components
+
+- **ProfilePublishInvoker** - Invocable class used by Flow to trigger publishing
+- **PublishProfilesService** - Service class handling data preparation and CMS integration
+- **Profile Publish on Approval** - Record-triggered Flow that orchestrates the publishing process
+
+## Sharing & Collaboration
+
+### Repository Access
+This project is publicly available on GitHub at:
+**https://github.com/jongiduba/CubeZoo**
+
+### For Team Members
+```bash
+# Clone the repository
+git clone https://github.com/jongiduba/CubeZoo.git
+cd CubeZoo
+
+# Authenticate with Salesforce
+sf org login web --instance-url https://login.salesforce.com
+
+# Deploy to your org
+sf project deploy start --source-dir force-app
+```
+
+### Project Features
+- ✅ Data modeling with custom fields
+- ✅ Record-triggered Flow automation
+- ✅ Apex service layer architecture
+- ✅ External integration simulation
+- ✅ Comprehensive logging and error handling
+- ✅ Git version control integration
+
+### Future Improvements
+- Add retry mechanism for failed integrations
+- Use Platform Events for decoupling
+- Implement real API integration
+- Add monitoring dashboard
+- Create comprehensive test coverage
